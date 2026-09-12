@@ -1,0 +1,25 @@
+<svg width="420" height="330" viewBox="0 0 420 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="g" x1="58" y1="50" x2="355" y2="285" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FF7A18"/><stop offset=".48" stop-color="#E72E8B"/><stop offset="1" stop-color="#7046E8"/>
+  </linearGradient>
+  <filter id="shadow" x="0" y="0" width="420" height="330" filterUnits="userSpaceOnUse">
+    <feDropShadow dx="0" dy="14" stdDeviation="14" flood-opacity=".18"/>
+  </filter>
+</defs>
+<g filter="url(#shadow)">
+  <path d="M78 218L210 274L342 218L210 165L78 218Z" fill="#111827" fill-opacity=".08" stroke="url(#g)" stroke-width="5"/>
+  <path d="M78 218V257L210 314L342 257V218L210 274L78 218Z" fill="url(#g)" fill-opacity=".12" stroke="url(#g)" stroke-width="5"/>
+  <path d="M105 159L210 204L315 159L210 117L105 159Z" fill="#fff" stroke="url(#g)" stroke-width="5"/>
+  <path d="M105 159V199L210 244L315 199V159L210 204L105 159Z" fill="#fff" stroke="url(#g)" stroke-width="5"/>
+  <path d="M137 96L210 126L283 96L210 66L137 96Z" fill="#fff" stroke="url(#g)" stroke-width="5"/>
+  <path d="M137 96V123L210 153L283 123V96L210 126L137 96Z" fill="#fff" stroke="url(#g)" stroke-width="5"/>
+  <rect x="180" y="45" width="60" height="38" rx="8" fill="url(#g)" transform="rotate(20 180 45)"/>
+  <text x="197" y="70" font-family="Arial" font-size="19" font-weight="700" fill="white" transform="rotate(20 197 70)">A²</text>
+  <rect x="165" y="141" width="90" height="27" rx="6" fill="url(#g)" opacity=".95"/>
+  <circle cx="188" cy="154" r="5" fill="white"/><circle cx="205" cy="154" r="5" fill="white"/><circle cx="222" cy="154" r="5" fill="white"/>
+  <rect x="165" y="215" width="90" height="27" rx="6" fill="url(#g)" opacity=".9"/>
+  <path d="M183 228h54" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="281" cy="185" r="8" fill="#FF6B2D"/><circle cx="298" cy="193" r="8" fill="#B632D6"/><circle cx="284" cy="207" r="8" fill="#6545E8"/>
+</g>
+</svg>
