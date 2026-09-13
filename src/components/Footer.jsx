@@ -11,9 +11,9 @@ export default function Footer() {
             Curated tools, technologies, and resources for developers building modern software.
           </p>
           <div className="mt-4 flex gap-4 text-[10px] font-medium text-slate-500">
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-pink-600">GitHub</a>
-            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-pink-600">Twitter</a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-pink-600">LinkedIn</a>
+            <a href="#" target="_blank" rel="noreferrer" className="hover:text-pink-600">GitHub</a>
+            <a href="#" target="_blank" rel="noreferrer" className="hover:text-pink-600">Twitter</a>
+            <a href="#" target="_blank" rel="noreferrer" className="hover:text-pink-600">LinkedIn</a>
           </div>
         </div>
 
