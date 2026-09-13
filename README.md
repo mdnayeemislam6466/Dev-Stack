@@ -23,7 +23,6 @@ dev-stack/
 ├── package-lock.json
 ├── vite.config.js
 ├── tailwind.config.js
-├── postcss.config.js
 ├── README.md
 ├── public/
 │   └── technologies.json
