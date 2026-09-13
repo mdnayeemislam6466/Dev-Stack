@@ -1,15 +1,13 @@
-# Dev Stack
+# Dev Stack Assignment-5
 
 A responsive React project that lets users explore modern development technologies and build a personal technology stack.
 
-## ✨ Features
-
+## 🚀 Features
 - Responsive sticky navbar with a mobile hamburger menu.
 - Technology cards loaded dynamically from a local JSON file.
 - Add, remove, duplicate-prevention, and Remove All stack functionality with React Toastify notifications.
 
 ## 🛠️ Technologies Used
-
 - React.js
 - Vite
 - Tailwind CSS
@@ -17,17 +15,63 @@ A responsive React project that lets users explore modern development technologi
 - React-Toastify
 - JSON
 
-## 🚀 Run Locally
-
-```bash
-npm install
-npm run dev
+## 📂 Project Structure
+```
+dev-stack/
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+├── tailwind.config.js
+├── postcss.config.js
+├── README.md
+├── public/
+│   └── technologies.json
+└── src/
+    ├── assets/
+    │   └── hero-illustration.svg
+    │   └── images/
+    │       ├── Screenshot-1.png
+    │       ├── Screenshot-2.png
+    │       ├── Screenshot-3.png
+    │       └── Screenshot-4.png
+    ├── components/
+    │   ├── Navbar.jsx
+    │   ├── Hero.jsx
+    │   ├── TechnologyCard.jsx
+    │   ├── TechnologySection.jsx
+    │   ├── StackSidebar.jsx
+    │   └── Footer.jsx
+    ├── data/
+    ├── App.jsx
+    ├── main.jsx
+    └── index.css
 ```
 
-Then open the local URL printed by Vite.
+<h2>📸 Project Screenshots</h2>
 
-## 🧠 React Questions
+<table> 
+  <tr> 
+    <td align="center" valign="top"> 
+      <b>Nav and Banner Section</b><br><br> 
+      <img src="src/assets/images/Screenshot-1.png" width="220"> 
+    </td> 
+    <td align="center" valign="top"> 
+      <b>Technologies Card Section</b><br><br> 
+      <img src="src/assets/images/Screenshot-2.png" width="220"> 
+    </td> 
+    <td align="center" valign="top"> 
+      <b>Stack Sidebar Card</b><br><br> 
+      <img src="src/assets/images/Screenshot-3.png" width="220"> 
+    </td> 
+    <td align="center" valign="top"> 
+      <b>Footer Section</b><br><br> 
+      <img src="src/assets/images/Screenshot-4.png" width="220"> 
+    </td> 
+  </tr> 
+</table>
 
+### I have written a concise, simple, and amazing answer to this question about React :
 ### 1. What is JSX, and why is it used in React?
 
 JSX is a syntax that lets us write HTML-like UI inside JavaScript. React uses it to make component markup easier to read and maintain.
@@ -56,10 +100,23 @@ Conditional rendering means showing different UI based on a condition. The stack
 
 A parent passes data through props. A child can send information back by calling a callback function that the parent passes as a prop. For example, `TechnologyCard` receives `tech` and `onAdd`, then calls `onAdd(tech)`.
 
-## 📁 Data Source
+ ## 📁 Data Source
 
 Technology data lives in `public/technologies.json` and is fetched at runtime. The technology array is intentionally not hardcoded inside a React component.
 
 ## 🎨 Theme
 
 The orange → pink → violet gradient is defined once as `--brand-gradient` in `src/index.css`, so the main brand theme can be changed from one place.
+  
+## 🌐 Live Demo
+
+https://mdnayeemislam6466.github.io/Dev-Stack/
+
+## 👨‍💻 Author
+<img src="https://github.com/mdnayeemislam6466.png" alt="Md Nayeem" width="80" height="80" align="left">
+
+**Md Nayeem**  
+💻 Web Developer  
+📍 Bangladesh  
+
+<br clear="left">
