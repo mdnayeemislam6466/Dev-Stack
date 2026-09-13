@@ -1,4 +1,4 @@
-import heroIllustration from './assets/hero-illustration.svg';
+import heroIllustration from '../assets/hero-illustration.svg';
 
 export default function Hero() {
   return (
