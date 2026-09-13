@@ -217,7 +217,7 @@
       }
       .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
       .icon-wrap { display: grid; place-items: center; width: 36px; height: 36px; }
-      .tech-icon { max-width: 32px; max-height: 32px; -o-object-fit: contain; object-fit: contain; }
+      .tech-icon { max-width: 32px; max-height: 32px; object-fit: contain; }
       .badge {
         padding: 5px 10px;
         border-radius: 999px;
@@ -294,7 +294,7 @@
         border: 1px solid #e2e8f0;
         border-radius: 8px;
       }
-      .stack-item img { width: 28px; height: 28px; -o-object-fit: contain; object-fit: contain; }
+      .stack-item img { width: 28px; height: 28px; object-fit: contain; }
       .stack-item-info { min-width: 0; flex: 1; }
       .stack-item-name {
         overflow: hidden;
@@ -471,13 +471,7 @@
       (() => {
         const isDirectBrowser = window.location.protocol === 'file:';
 
-        if (!isDirectBrowser) {
-          const moduleScript = document.createElement('script');
-          moduleScript.type = 'module';
-          moduleScript.src = '/src/main.jsx';
-          document.body.appendChild(moduleScript);
-          return;
-        }
+        
 
         /*
          * Standalone browser preview.
