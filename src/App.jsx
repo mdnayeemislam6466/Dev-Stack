@@ -4,7 +4,6 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TechnologySection from './components/TechnologySection'
 import Footer from './components/Footer'
-import heroIllustration from './assets/hero-illustration.svg';
 
 function ToastIcon({ type }) {
   const icon = type === 'success' ? '✓' : type === 'warning' ? '!' : 'i'
