@@ -26,3 +26,116 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (min-width: 768px) {
   .section-shell { width: min(1100px, calc(100% - 64px)); }
 }
+
+
+/* --------------------------------------------------------------------------
+   Dev Stack notifications
+   --------------------------------------------------------------------------
+   Toastify keeps the notification behavior; these classes own the visual
+   design so every success, info, and warning message follows one system.
+*/
+.Toastify__toast-container {
+  width: min(380px, calc(100vw - 24px));
+  padding: 0;
+  z-index: 9999;
+}
+
+.Toastify__toast {
+  position: relative;
+  min-height: 68px;
+  margin-bottom: 12px;
+  padding: 14px 42px 14px 16px;
+  overflow: hidden;
+  border: 1px solid #e7ebf0;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #64748b;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, .12);
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.Toastify__toast--success { border-left: 4px solid #16a34a; }
+.Toastify__toast--info { border-left: 4px solid #2196f3; }
+.Toastify__toast--warning { border-left: 4px solid #f59e0b; }
+
+.Toastify__toast-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.toast-status-icon {
+  display: inline-grid;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.toast-status-success {
+  background: #22c55e;
+  color: #ffffff;
+}
+
+.toast-status-info {
+  background: #2196f3;
+  color: #ffffff;
+  font-family: Georgia, serif;
+  font-size: 19px;
+}
+
+.toast-status-warning {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+.Toastify__close-button {
+  position: absolute;
+  top: 13px;
+  right: 12px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  color: #94a3b8;
+  opacity: 1;
+}
+
+.Toastify__close-button > svg {
+  width: 15px;
+  height: 15px;
+}
+
+.Toastify__close-button:hover { color: #475569; }
+
+.Toastify__progress-bar {
+  height: 3px;
+  bottom: 0;
+  opacity: 1;
+}
+
+.Toastify__progress-bar--success { background: #22c55e; }
+.Toastify__progress-bar--info { background: #2196f3; }
+.Toastify__progress-bar--warning { background: #f59e0b; }
+
+@media (max-width: 480px) {
+  .Toastify__toast-container {
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+
+  .Toastify__toast {
+    min-height: 64px;
+    margin-bottom: 10px;
+    padding-left: 13px;
+    font-size: 12px;
+  }
+}

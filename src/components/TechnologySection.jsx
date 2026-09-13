@@ -36,7 +36,10 @@ export default function TechnologySection() {
   const removeFromStack = (id) => {
     const removed = stack.find(item => item.id === id)
     setStack(current => current.filter(item => item.id !== id))
-    if (removed) toast.info(`${removed.name} removed from your stack.`)
+
+    if (removed) {
+      toast.info(`${removed.name} removed from your stack.`)
+    }
   }
 
   const removeAll = () => {

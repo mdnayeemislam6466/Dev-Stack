@@ -1,0 +1,13 @@
+Meaningful Git commits included:
+
+e279848 fix: support opening index directly in browser
+be308d5 docs: add project documentation and React answers
+31ba0f4 feat: add responsive footer
+2087ffe feat: connect stack interactions and toast notifications
+ad8e281 feat: add selected stack sidebar
+872e6dc feat: build technology cards and JSON loading
+bd165fc feat: add technology catalog JSON data
+7e8363b feat: add hero section and development illustration
+f20ab37 feat: add responsive sticky navbar
+5b7465c style: add global theme and Tailwind setup
+5b50467 chore: initialize Vite React project

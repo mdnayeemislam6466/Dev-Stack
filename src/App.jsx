@@ -5,6 +5,12 @@ import Hero from './components/Hero'
 import TechnologySection from './components/TechnologySection'
 import Footer from './components/Footer'
 
+function ToastIcon({ type }) {
+  const icon = type === 'success' ? '✓' : type === 'warning' ? '!' : 'i'
+
+  return <span className={`toast-status-icon toast-status-${type}`}>{icon}</span>
+}
+
 export default function App() {
   return (
     <>
@@ -17,7 +23,20 @@ export default function App() {
         <section id="careers" className="sr-only" aria-label="Careers" />
       </main>
       <Footer />
-      <ToastContainer position="top-right" autoClose={2200} newestOnTop theme="light" />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={2600}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="light"
+        icon={({ type }) => <ToastIcon type={type} />}
+        toastClassName="dev-stack-toast"
+        bodyClassName="dev-stack-toast-body"
+        progressClassName="dev-stack-toast-progress"
+      />
     </>
   )
 }
