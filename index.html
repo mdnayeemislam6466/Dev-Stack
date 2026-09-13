@@ -1,816 +1,1526 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Dev Stack — explore modern technologies and build your ideal development stack." />
-    <meta name="theme-color" content="#111827" />
-    <title>Dev Stack</title>
-    <script type="application/json" id="standalone-technology-data">[{"id": "react", "name": "React", "category": "Frontend", "description": "A declarative, component-based JavaScript library for building modern user interfaces.", "icon": "https://icon.icepanel.io/Technology/svg/React.svg", "rating": 4.9, "difficulty": "Beginner-Friendly", "badge": "Popular"}, {"id": "vue", "name": "Vue.js", "category": "Frontend", "description": "An approachable, performant, and versatile framework for building web interfaces.", "icon": "https://icon.icepanel.io/Technology/svg/Vue.js.svg", "rating": 4.8, "difficulty": "Beginner-Friendly", "badge": "Versatile"}, {"id": "svelte", "name": "Svelte", "category": "Frontend", "description": "A compiler-based UI framework that turns components into efficient JavaScript at build time.", "icon": "https://icon.icepanel.io/Technology/svg/Svelte.svg", "rating": 4.8, "difficulty": "Intermediate", "badge": "Fast"}, {"id": "nextjs", "name": "Next.js", "category": "Frontend", "description": "A React framework for full-stack web applications with hybrid rendering and server features.", "icon": "https://icon.icepanel.io/Technology/svg/Next.js.svg", "rating": 4.9, "difficulty": "Intermediate", "badge": "Full Stack"}, {"id": "nodejs", "name": "Node.js", "category": "Backend", "description": "An asynchronous, event-driven JavaScript runtime built for scalable server applications.", "icon": "https://icon.icepanel.io/Technology/svg/Node.js.svg", "rating": 4.8, "difficulty": "Intermediate", "badge": "Standard"}, {"id": "express", "name": "Express.js", "category": "Backend", "description": "A lightweight Node.js web framework for APIs, routing, middleware, and server-side applications.", "icon": "https://icon.icepanel.io/Technology/svg/Express.svg", "rating": 4.7, "difficulty": "Beginner-Friendly", "badge": "API Ready"}, {"id": "postgresql", "name": "PostgreSQL", "category": "Database", "description": "A powerful open-source relational database known for reliability, extensibility, and SQL support.", "icon": "https://icon.icepanel.io/Technology/svg/PostgresSQL.svg", "rating": 4.9, "difficulty": "Intermediate", "badge": "Top SQL"}, {"id": "mongodb", "name": "MongoDB", "category": "Database", "description": "A flexible document database designed for modern applications and rapidly changing data models.", "icon": "https://icon.icepanel.io/Technology/svg/MongoDB.svg", "rating": 4.8, "difficulty": "Intermediate", "badge": "Flexible"}, {"id": "redis", "name": "Redis", "category": "Database", "description": "An in-memory data store commonly used for caching, sessions, queues, and fast application data.", "icon": "https://icon.icepanel.io/Technology/svg/Redis.svg", "rating": 4.8, "difficulty": "Intermediate", "badge": "Cache"}, {"id": "javascript", "name": "JavaScript", "category": "Language", "description": "The versatile language that powers dynamic behavior across the modern web and server runtimes.", "icon": "https://icon.icepanel.io/Technology/svg/JavaScript.svg", "rating": 4.9, "difficulty": "Beginner-Friendly", "badge": "Ubiquitous"}, {"id": "typescript", "name": "TypeScript", "category": "Language", "description": "A strongly typed superset of JavaScript that improves tooling, maintainability, and refactoring.", "icon": "https://icon.icepanel.io/Technology/svg/TypeScript.svg", "rating": 4.9, "difficulty": "Intermediate", "badge": "Essential"}, {"id": "tailwind", "name": "Tailwind CSS", "category": "Styling", "description": "A utility-first CSS framework for rapidly creating responsive interfaces with reusable utility classes.", "icon": "https://icon.icepanel.io/Technology/svg/Tailwind-CSS.svg", "rating": 4.9, "difficulty": "Beginner-Friendly", "badge": "Modern"}, {"id": "docker", "name": "Docker", "category": "DevOps", "description": "A container platform for packaging, sharing, and running applications consistently across environments.", "icon": "https://icon.icepanel.io/Technology/svg/Docker.svg", "rating": 4.9, "difficulty": "Intermediate", "badge": "Containers"}, {"id": "git", "name": "Git", "category": "Tools", "description": "A distributed version control system for tracking code changes and collaborating safely on projects.", "icon": "https://icon.icepanel.io/Technology/svg/Git.svg", "rating": 4.9, "difficulty": "Beginner-Friendly", "badge": "Must Have"}, {"id": "github", "name": "GitHub", "category": "Tools", "description": "A collaborative development platform for Git repositories, code review, issues, and project workflows.", "icon": "https://icon.icepanel.io/Technology/svg/GitHub.svg", "rating": 4.8, "difficulty": "Beginner-Friendly", "badge": "Collaboration"}]</script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dev Stack — explore modern technologies and build your ideal development stack.">
+  <meta name="theme-color" content="#111827">
 
-    <style>
-      :root {
-        --brand-gradient: linear-gradient(100deg, #ff6b1a 0%, #e62d8b 52%, #7447e8 100%);
-        --ink: #111827;
-        --muted: #64748b;
-        --soft-muted: #94a3b8;
-        --border: #e8edf3;
-        --surface: #ffffff;
-        --surface-soft: #f8fafc;
-        --success: #16a34a;
-        --danger: #ef4444;
-        --warning: #f59e0b;
+  <title>Dev Stack</title>
+
+  <style>
+    :root {
+      --brand-gradient: linear-gradient(
+        100deg,
+        #ff6b1a 0%,
+        #e62d8b 52%,
+        #7447e8 100%
+      );
+
+      --ink: #111827;
+      --muted: #64748b;
+      --soft-muted: #94a3b8;
+      --border: #e8edf3;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --success: #16a34a;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--surface);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button,
+    a {
+      font: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .gradient-text {
+      color: transparent;
+      background: var(--brand-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .gradient-bg {
+      background: var(--brand-gradient);
+    }
+
+    .section-shell {
+      width: min(1100px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    /* Navbar */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid #f1f5f9;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .desktop-nav {
+      position: absolute;
+      left: 50%;
+      display: flex;
+      gap: 32px;
+      transform: translateX(-50%);
+    }
+
+    .desktop-nav a,
+    .auth-signin {
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .desktop-nav a:hover,
+    .auth-signin:hover {
+      color: #db2777;
+    }
+
+    .desktop-nav a.active {
+      color: #db2777;
+    }
+
+    .auth-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .auth-signin {
+      border: 0;
+      background: transparent;
+    }
+
+    .signup {
+      border: 0;
+      border-radius: 999px;
+      padding: 8px 20px;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .menu-button {
+      display: none;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+    }
+
+    .menu-lines {
+      display: flex;
+      width: 20px;
+      margin: auto;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-lines span {
+      height: 2px;
+      background: #334155;
+      border-radius: 2px;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      padding: 12px 16px 16px;
+      border-bottom: 1px solid var(--border);
+      background: white;
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 12px;
+      border-radius: 8px;
+      color: #64748b;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .mobile-menu a:hover {
+      background: #f8fafc;
+      color: #db2777;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      min-height: 455px;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 32px;
+      padding: 64px 0;
+    }
+
+    .hero h1 {
+      max-width: 620px;
+      margin: 0;
+      color: #0f172a;
+      font-size: clamp(38px, 5vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      display: block;
+    }
+
+    .hero p {
+      max-width: 570px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 18px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      color: white;
+      box-shadow: 0 8px 20px rgba(116, 71, 232, 0.12);
+    }
+
+    .button-secondary {
+      border: 1px solid #e2e8f0;
+      color: #475569;
+    }
+
+    .hero-art {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .hero-art img {
+      width: min(390px, 100%);
+    }
+
+    /* Technology Section */
+    .technology-section {
+      padding-bottom: 80px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: #0f172a;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: -0.8px;
+    }
+
+    .section-heading p {
+      margin: 8px 0 0;
+      color: var(--soft-muted);
+      font-size: 12px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 230px;
+      align-items: start;
+      gap: 20px;
+    }
+
+    .technology-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .tech-card {
+      display: flex;
+      min-height: 254px;
+      flex-direction: column;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 5px 18px rgba(17, 24, 39, 0.035);
+      transition: transform 0.2s ease, border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .tech-card:hover {
+      transform: translateY(-2px);
+      border-color: #dbe2ea;
+      box-shadow: 0 10px 25px rgba(17, 24, 39, 0.07);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .icon-wrap {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+    }
+
+    .tech-icon {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .badge {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #f8fafc;
+      color: #64748b;
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .tech-card h3 {
+      margin: 12px 0 0;
+      color: #1e293b;
+      font-size: 16px;
+    }
+
+    .tech-card p {
+      display: -webkit-box;
+      overflow: hidden;
+      margin: 8px 0 0;
+      color: var(--soft-muted);
+      font-size: 11px;
+      line-height: 1.55;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      padding-top: 16px;
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--soft-muted);
+      font-size: 10px;
+    }
+
+    .category {
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: #f8fafc;
+      color: #64748b;
+    }
+
+    .rating strong {
+      color: #f59e0b;
+    }
+
+    .add-button {
+      width: 100%;
+      min-height: 38px;
+      border: 0;
+      border-radius: 6px;
+      background: #020617;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .add-button:hover {
+      background: #1e293b;
+    }
+
+    .add-button:disabled {
+      cursor: not-allowed;
+      background: #f1f5f9;
+      color: #94a3b8;
+    }
+
+    /* Sidebar */
+    .stack-sidebar {
+      position: sticky;
+      top: 88px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 5px 18px rgba(17, 24, 39, 0.035);
+    }
+
+    .stack-sidebar h2 {
+      margin: 0;
+      color: #1e293b;
+      font-size: 14px;
+    }
+
+    .stack-count {
+      margin: 4px 0 0;
+      color: var(--soft-muted);
+      font-size: 10px;
+    }
+
+    .empty-stack {
+      display: grid;
+      min-height: 82px;
+      place-items: center;
+      margin-top: 16px;
+      padding: 12px;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      color: var(--soft-muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .stack-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .stack-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+
+    .stack-item img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .stack-item-info {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .stack-item-name {
+      overflow: hidden;
+      margin: 0;
+      color: #1e293b;
+      font-size: 11px;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .stack-item-category {
+      margin: 2px 0 0;
+      color: var(--soft-muted);
+      font-size: 8px;
+    }
+
+    .remove-button {
+      padding: 0 2px;
+      border: 0;
+      background: transparent;
+      color: #94a3b8;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .remove-button:hover {
+      color: var(--danger);
+    }
+
+    .remove-all {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #fecaca;
+      border-radius: 6px;
+      background: white;
+      color: #ef4444;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .remove-all:hover {
+      background: #fef2f2;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid #f1f5f9;
+      background: white;
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding: 48px 0;
+    }
+
+    .footer-description {
+      max-width: 290px;
+      margin: 16px 0 0;
+      color: var(--soft-muted);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+      color: #64748b;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .footer-socials a:hover {
+      color: #db2777;
+    }
+
+    .footer-group h3 {
+      margin: 0;
+      color: #334155;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .footer-links a {
+      color: var(--soft-muted);
+      font-size: 10px;
+    }
+
+    .footer-links a:hover {
+      color: #334155;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .footer-bottom-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 0;
+      color: #cbd5e1;
+      font-size: 9px;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #64748b;
+    }
+
+    /* Toast */
+    .toast-region {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 100;
+      display: grid;
+      gap: 12px;
+      width: min(380px, calc(100% - 36px));
+    }
+
+    .toast {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 68px;
+      padding: 14px 42px 14px 16px;
+      overflow: hidden;
+      border: 1px solid #e7ebf0;
+      border-left: 4px solid #64748b;
+      border-radius: 10px;
+      background: #fff;
+      color: #64748b;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      font-size: 13px;
+      font-weight: 500;
+      animation: toast-in 0.2s ease-out;
+    }
+
+    .toast.success {
+      border-left-color: #16a34a;
+    }
+
+    .toast.warning {
+      border-left-color: #f59e0b;
+    }
+
+    .toast.info {
+      border-left-color: #2196f3;
+    }
+
+    .toast-status-icon {
+      display: grid;
+      flex: 0 0 34px;
+      width: 34px;
+      height: 34px;
+      margin-right: 12px;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .toast-status-icon.success {
+      background: #22c55e;
+    }
+
+    .toast-status-icon.info {
+      background: #2196f3;
+      font-family: Georgia, serif;
+    }
+
+    .toast-status-icon.warning {
+      background: #f59e0b;
+    }
+
+    .toast-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      border: 0;
+      background: transparent;
+      color: #94a3b8;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .toast-close:hover {
+      color: #475569;
+    }
+
+    .toast-progress {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      transform-origin: left;
+      animation: toast-progress 2.2s linear forwards;
+    }
+
+    .toast.success .toast-progress {
+      background: #22c55e;
+    }
+
+    .toast.info .toast-progress {
+      background: #2196f3;
+    }
+
+    .toast.warning .toast-progress {
+      background: #f59e0b;
+    }
+
+    @keyframes toast-in {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
       }
 
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body {
-        margin: 0;
-        color: var(--ink);
-        background: var(--surface);
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
-      button, a { font: inherit; -webkit-tap-highlight-color: transparent; }
-      button { cursor: pointer; }
-      a { color: inherit; text-decoration: none; }
-      img { display: block; max-width: 100%; }
-      .gradient-text {
-        color: transparent;
-        background: var(--brand-gradient);
-        -webkit-background-clip: text;
-        background-clip: text;
+    }
+
+    @keyframes toast-progress {
+      from {
+        transform: scaleX(1);
       }
-      .gradient-bg { background: var(--brand-gradient); }
+
+      to {
+        transform: scaleX(0);
+      }
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
       .section-shell {
-        width: min(1100px, calc(100% - 32px));
-        margin-inline: auto;
+        width: min(1100px, calc(100% - 64px));
+      }
+    }
+
+    @media (max-width: 1023px) {
+      .technology-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 767px) {
+      .menu-button {
+        display: flex;
       }
 
-      .site-header {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        border-bottom: 1px solid #f1f5f9;
-        background: rgba(255,255,255,.95);
-        backdrop-filter: blur(12px);
-      }
-      .nav-inner {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 64px;
-      }
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 17px;
-        font-weight: 800;
-        letter-spacing: -.02em;
-      }
-      .brand-mark {
-        display: grid;
-        place-items: center;
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
-        color: white;
-        font-size: 11px;
-        font-weight: 800;
-      }
       .desktop-nav {
-        position: absolute;
-        left: 50%;
-        display: flex;
-        gap: 32px;
-        transform: translateX(-50%);
-      }
-      .desktop-nav a, .auth-signin {
-        color: #64748b;
-        font-size: 12px;
-        font-weight: 600;
-        transition: color .2s ease;
-      }
-      .desktop-nav a:hover, .auth-signin:hover { color: #db2777; }
-      .desktop-nav a.active { color: #db2777; }
-      .auth-actions { display: flex; align-items: center; gap: 12px; }
-      .auth-signin { border: 0; background: transparent; }
-      .signup {
-        border: 0;
-        border-radius: 999px;
-        padding: 8px 20px;
-        color: white;
-        font-size: 12px;
-        font-weight: 700;
-      }
-      .menu-button {
         display: none;
-        width: 36px;
-        height: 36px;
-        border: 0;
-        border-radius: 8px;
-        background: transparent;
       }
-      .menu-lines { display: flex; width: 20px; margin: auto; flex-direction: column; gap: 4px; }
-      .menu-lines span { height: 2px; background: #334155; border-radius: 2px; }
-      .mobile-menu {
+
+      .auth-signin {
         display: none;
-        position: absolute;
-        top: 64px;
-        left: 0;
-        right: 0;
-        padding: 12px 16px 16px;
-        border-bottom: 1px solid var(--border);
-        background: white;
-        box-shadow: 0 12px 25px rgba(15,23,42,.08);
       }
-      .mobile-menu.open { display: block; }
-      .mobile-menu a {
-        display: block;
-        padding: 12px;
-        border-radius: 8px;
-        color: #64748b;
-        font-size: 14px;
-        font-weight: 600;
-      }
-      .mobile-menu a:hover { background: #f8fafc; color: #db2777; }
 
       .hero {
-        display: grid;
-        min-height: 455px;
-        grid-template-columns: 1.15fr .85fr;
-        align-items: center;
-        gap: 32px;
-        padding: 64px 0;
-      }
-      .hero h1 {
-        max-width: 620px;
-        margin: 0;
-        color: #0f172a;
-        font-size: clamp(38px, 5vw, 54px);
-        line-height: 1.08;
-        letter-spacing: -2px;
-      }
-      .hero h1 span { display: block; }
-      .hero p {
-        max-width: 570px;
-        margin: 20px 0 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.75;
-      }
-      .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-      .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 42px;
-        padding: 0 18px;
-        border-radius: 8px;
-        font-size: 12px;
-        font-weight: 700;
-        transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-      }
-      .button:hover { transform: translateY(-1px); }
-      .button-primary { color: white; box-shadow: 0 8px 20px rgba(116,71,232,.12); }
-      .button-secondary { border: 1px solid #e2e8f0; color: #475569; }
-      .hero-art { display: flex; justify-content: flex-end; }
-      .hero-art img { width: min(390px, 100%); }
-
-      .technology-section { padding-bottom: 80px; scroll-margin-top: 80px; }
-      .section-heading { margin-bottom: 28px; }
-      .section-heading h2 {
-        margin: 0;
-        color: #0f172a;
-        font-size: 28px;
-        line-height: 1.2;
-        letter-spacing: -.8px;
-      }
-      .section-heading p { margin: 8px 0 0; color: var(--soft-muted); font-size: 12px; }
-      .content-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 230px;
-        align-items: start;
-        gap: 20px;
-      }
-      .technology-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
-      }
-      .tech-card {
-        display: flex;
-        min-height: 254px;
-        flex-direction: column;
-        padding: 20px;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        background: white;
-        box-shadow: 0 5px 18px rgba(17,24,39,.035);
-        transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-      }
-      .tech-card:hover {
-        transform: translateY(-2px);
-        border-color: #dbe2ea;
-        box-shadow: 0 10px 25px rgba(17,24,39,.07);
-      }
-      .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-      .icon-wrap { display: grid; place-items: center; width: 36px; height: 36px; }
-      .tech-icon { max-width: 32px; max-height: 32px; object-fit: contain; }
-      .badge {
-        padding: 5px 10px;
-        border-radius: 999px;
-        background: #f8fafc;
-        color: #64748b;
-        font-size: 9px;
-        font-weight: 700;
-      }
-      .tech-card h3 { margin: 12px 0 0; color: #1e293b; font-size: 16px; }
-      .tech-card p {
-        display: -webkit-box;
-        overflow: hidden;
-        margin: 8px 0 0;
-        color: var(--soft-muted);
-        font-size: 11px;
-        line-height: 1.55;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-      }
-      .card-footer { margin-top: auto; padding-top: 16px; }
-      .meta {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-        margin-bottom: 12px;
-        color: var(--soft-muted);
-        font-size: 10px;
-      }
-      .category { padding: 4px 8px; border-radius: 4px; background: #f8fafc; color: #64748b; }
-      .rating strong { color: #f59e0b; }
-      .add-button {
-        width: 100%;
-        min-height: 38px;
-        border: 0;
-        border-radius: 6px;
-        background: #020617;
-        color: white;
-        font-size: 11px;
-        font-weight: 700;
-      }
-      .add-button:hover { background: #1e293b; }
-      .add-button:disabled { cursor: not-allowed; background: #f1f5f9; color: #94a3b8; }
-
-      .stack-sidebar {
-        position: sticky;
-        top: 88px;
-        padding: 16px;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        background: white;
-        box-shadow: 0 5px 18px rgba(17,24,39,.035);
-      }
-      .stack-sidebar h2 { margin: 0; color: #1e293b; font-size: 14px; }
-      .stack-count { margin: 4px 0 0; color: var(--soft-muted); font-size: 10px; }
-      .empty-stack {
-        display: grid;
-        min-height: 82px;
-        place-items: center;
-        margin-top: 16px;
-        padding: 12px;
-        border: 1px dashed #cbd5e1;
-        border-radius: 8px;
-        color: var(--soft-muted);
-        font-size: 11px;
-        text-align: center;
-      }
-      .stack-list { display: grid; gap: 8px; margin-top: 16px; }
-      .stack-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 10px;
-        border: 1px solid #e2e8f0;
-        border-radius: 8px;
-      }
-      .stack-item img { width: 28px; height: 28px; object-fit: contain; }
-      .stack-item-info { min-width: 0; flex: 1; }
-      .stack-item-name {
-        overflow: hidden;
-        margin: 0;
-        color: #1e293b;
-        font-size: 11px;
-        font-weight: 700;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      .stack-item-category { margin: 2px 0 0; color: var(--soft-muted); font-size: 8px; }
-      .remove-button {
-        padding: 0 2px;
-        border: 0;
-        background: transparent;
-        color: #94a3b8;
-        font-size: 20px;
-        font-weight: 300;
-        line-height: 1;
-      }
-      .remove-button:hover { color: var(--danger); }
-      .remove-all {
-        width: 100%;
-        margin-top: 20px;
-        padding: 10px;
-        border: 1px solid #fecaca;
-        border-radius: 6px;
-        background: white;
-        color: #ef4444;
-        font-size: 11px;
-        font-weight: 700;
-      }
-      .remove-all:hover { background: #fef2f2; }
-
-      .site-footer { border-top: 1px solid #f1f5f9; background: white; }
-      .footer-main {
-        display: grid;
-        grid-template-columns: 1.7fr 1fr 1fr 1fr;
-        gap: 40px;
+        grid-template-columns: 1fr;
+        min-height: auto;
         padding: 48px 0;
       }
-      .footer-description { max-width: 290px; margin: 16px 0 0; color: var(--soft-muted); font-size: 11px; line-height: 1.8; }
-      .footer-socials { display: flex; gap: 16px; margin-top: 16px; color: #64748b; font-size: 10px; font-weight: 600; }
-      .footer-socials a:hover { color: #db2777; }
-      .footer-group h3 { margin: 0; color: #334155; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
-      .footer-links { display: grid; gap: 12px; margin-top: 16px; }
-      .footer-links a { color: var(--soft-muted); font-size: 10px; }
-      .footer-links a:hover { color: #334155; }
-      .footer-bottom { border-top: 1px solid #f1f5f9; }
-      .footer-bottom-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        padding: 20px 0;
-        color: #cbd5e1;
-        font-size: 9px;
-      }
-      .footer-bottom-links { display: flex; gap: 20px; }
-      .footer-bottom-links a:hover { color: #64748b; }
 
+      .hero-art {
+        justify-content: center;
+        order: -1;
+      }
+
+      .hero-art img {
+        width: min(320px, 80vw);
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-sidebar {
+        position: static;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .technology-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
       .toast-region {
-        position: fixed;
-        top: 18px;
-        right: 18px;
-        z-index: 100;
-        display: grid;
-        gap: 12px;
-        width: min(380px, calc(100% - 36px));
-      }
-      .toast {
-        position: relative;
-        display: flex;
-        align-items: center;
-        min-height: 68px;
-        padding: 14px 42px 14px 16px;
-        overflow: hidden;
-        border: 1px solid #e7ebf0;
-        border-left: 4px solid #64748b;
-        border-radius: 10px;
-        background: #fff;
-        color: #64748b;
-        box-shadow: 0 12px 32px rgba(15,23,42,.12);
-        font-size: 13px;
-        font-weight: 500;
-        animation: toast-in .2s ease-out;
-      }
-      .toast.success { border-left-color: #16a34a; }
-      .toast.warning { border-left-color: #f59e0b; }
-      .toast.info { border-left-color: #2196f3; }
-      .toast-status-icon {
-        display: grid;
-        flex: 0 0 34px;
-        width: 34px;
-        height: 34px;
-        margin-right: 12px;
-        place-items: center;
-        border-radius: 50%;
-        color: #fff;
-        font-size: 18px;
-        font-weight: 800;
-      }
-      .toast-status-icon.success { background: #22c55e; }
-      .toast-status-icon.info { background: #2196f3; font-family: Georgia, serif; }
-      .toast-status-icon.warning { background: #f59e0b; }
-      .toast-close {
-        position: absolute;
         top: 12px;
         right: 12px;
-        border: 0;
-        background: transparent;
-        color: #94a3b8;
-        font-size: 20px;
-        line-height: 1;
-      }
-      .toast-close:hover { color: #475569; }
-      .toast-progress {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 3px;
-        transform-origin: left;
-        animation: toast-progress 2.2s linear forwards;
-      }
-      .toast.success .toast-progress { background: #22c55e; }
-      .toast.info .toast-progress { background: #2196f3; }
-      .toast.warning .toast-progress { background: #f59e0b; }
-      @keyframes toast-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-      @keyframes toast-progress { from { transform: scaleX(1); } to { transform: scaleX(0); } }
-
-      @media (max-width: 480px) {
-        .toast-region { top: 12px; right: 12px; width: calc(100% - 24px); }
-        .toast { min-height: 64px; padding-left: 13px; font-size: 12px; }
+        width: calc(100% - 24px);
       }
 
-      @media (min-width: 768px) {
-        .section-shell { width: min(1100px, calc(100% - 64px)); }
+      .toast {
+        min-height: 64px;
+        padding-left: 13px;
+        font-size: 12px;
       }
-      @media (max-width: 1023px) {
-        .technology-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <script>
+    const technologies = [
+      {
+        id: "react",
+        name: "React",
+        category: "Frontend",
+        description: "A declarative, component-based JavaScript library for building modern user interfaces.",
+        icon: "https://icon.icepanel.io/Technology/svg/React.svg",
+        rating: 4.9,
+        difficulty: "Beginner-Friendly",
+        badge: "Popular"
+      },
+      {
+        id: "vue",
+        name: "Vue.js",
+        category: "Frontend",
+        description: "An approachable, performant, and versatile framework for building web interfaces.",
+        icon: "https://icon.icepanel.io/Technology/svg/Vue.js.svg",
+        rating: 4.8,
+        difficulty: "Beginner-Friendly",
+        badge: "Versatile"
+      },
+      {
+        id: "svelte",
+        name: "Svelte",
+        category: "Frontend",
+        description: "A compiler-based UI framework that turns components into efficient JavaScript at build time.",
+        icon: "https://icon.icepanel.io/Technology/svg/Svelte.svg",
+        rating: 4.8,
+        difficulty: "Intermediate",
+        badge: "Fast"
+      },
+      {
+        id: "nextjs",
+        name: "Next.js",
+        category: "Frontend",
+        description: "A React framework for full-stack web applications with hybrid rendering and server features.",
+        icon: "https://icon.icepanel.io/Technology/svg/Next.js.svg",
+        rating: 4.9,
+        difficulty: "Intermediate",
+        badge: "Full Stack"
+      },
+      {
+        id: "nodejs",
+        name: "Node.js",
+        category: "Backend",
+        description: "An asynchronous, event-driven JavaScript runtime built for scalable server applications.",
+        icon: "https://icon.icepanel.io/Technology/svg/Node.js.svg",
+        rating: 4.8,
+        difficulty: "Intermediate",
+        badge: "Standard"
+      },
+      {
+        id: "express",
+        name: "Express.js",
+        category: "Backend",
+        description: "A lightweight Node.js web framework for APIs, routing, middleware, and server-side applications.",
+        icon: "https://icon.icepanel.io/Technology/svg/Express.svg",
+        rating: 4.7,
+        difficulty: "Beginner-Friendly",
+        badge: "API Ready"
+      },
+      {
+        id: "postgresql",
+        name: "PostgreSQL",
+        category: "Database",
+        description: "A powerful open-source relational database known for reliability, extensibility, and SQL support.",
+        icon: "https://icon.icepanel.io/Technology/svg/PostgresSQL.svg",
+        rating: 4.9,
+        difficulty: "Intermediate",
+        badge: "Top SQL"
+      },
+      {
+        id: "mongodb",
+        name: "MongoDB",
+        category: "Database",
+        description: "A flexible document database designed for modern applications and rapidly changing data models.",
+        icon: "https://icon.icepanel.io/Technology/svg/MongoDB.svg",
+        rating: 4.8,
+        difficulty: "Intermediate",
+        badge: "Flexible"
+      },
+      {
+        id: "redis",
+        name: "Redis",
+        category: "Database",
+        description: "An in-memory data store commonly used for caching, sessions, queues, and fast application data.",
+        icon: "https://icon.icepanel.io/Technology/svg/Redis.svg",
+        rating: 4.8,
+        difficulty: "Intermediate",
+        badge: "Cache"
+      },
+      {
+        id: "javascript",
+        name: "JavaScript",
+        category: "Language",
+        description: "The versatile language that powers dynamic behavior across the modern web and server runtimes.",
+        icon: "https://icon.icepanel.io/Technology/svg/JavaScript.svg",
+        rating: 4.9,
+        difficulty: "Beginner-Friendly",
+        badge: "Ubiquitous"
+      },
+      {
+        id: "typescript",
+        name: "TypeScript",
+        category: "Language",
+        description: "A strongly typed superset of JavaScript that improves tooling, maintainability, and refactoring.",
+        icon: "https://icon.icepanel.io/Technology/svg/TypeScript.svg",
+        rating: 4.9,
+        difficulty: "Intermediate",
+        badge: "Essential"
+      },
+      {
+        id: "tailwind",
+        name: "Tailwind CSS",
+        category: "Styling",
+        description: "A utility-first CSS framework for rapidly creating responsive interfaces with reusable utility classes.",
+        icon: "https://icon.icepanel.io/Technology/svg/Tailwind-CSS.svg",
+        rating: 4.9,
+        difficulty: "Beginner-Friendly",
+        badge: "Modern"
+      },
+      {
+        id: "docker",
+        name: "Docker",
+        category: "DevOps",
+        description: "A container platform for packaging, sharing, and running applications consistently across environments.",
+        icon: "https://icon.icepanel.io/Technology/svg/Docker.svg",
+        rating: 4.9,
+        difficulty: "Intermediate",
+        badge: "Containers"
+      },
+      {
+        id: "git",
+        name: "Git",
+        category: "Tools",
+        description: "A distributed version control system for tracking code changes and collaborating safely on projects.",
+        icon: "https://icon.icepanel.io/Technology/svg/Git.svg",
+        rating: 4.9,
+        difficulty: "Beginner-Friendly",
+        badge: "Must Have"
+      },
+      {
+        id: "github",
+        name: "GitHub",
+        category: "Tools",
+        description: "A collaborative development platform for Git repositories, code review, issues, and project workflows.",
+        icon: "https://icon.icepanel.io/Technology/svg/GitHub.svg",
+        rating: 4.8,
+        difficulty: "Beginner-Friendly",
+        badge: "Collaboration"
       }
-      @media (max-width: 767px) {
-        .menu-button { display: flex; }
-        .desktop-nav { display: none; }
-        .auth-signin { display: none; }
-        .hero {
-          grid-template-columns: 1fr;
-          min-height: auto;
-          padding: 48px 0;
+    ];
+
+    const state = {
+      stack: [],
+      menuOpen: false
+    };
+
+    const app = document.getElementById("app");
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function showToast(message, type = "info") {
+      let region = document.querySelector(".toast-region");
+
+      if (!region) {
+        region = document.createElement("div");
+        region.className = "toast-region";
+        document.body.appendChild(region);
+      }
+
+      const toast = document.createElement("div");
+      toast.className = "toast " + type;
+
+      const icon = document.createElement("span");
+      icon.className = "toast-status-icon " + type;
+      icon.textContent =
+        type === "success" ? "✓" :
+        type === "warning" ? "!" : "i";
+
+      const text = document.createElement("span");
+      text.textContent = message;
+
+      const close = document.createElement("button");
+      close.type = "button";
+      close.className = "toast-close";
+      close.setAttribute("aria-label", "Close notification");
+      close.textContent = "×";
+
+      close.addEventListener("click", function () {
+        toast.remove();
+      });
+
+      const progress = document.createElement("span");
+      progress.className = "toast-progress";
+
+      toast.appendChild(icon);
+      toast.appendChild(text);
+      toast.appendChild(close);
+      toast.appendChild(progress);
+
+      region.appendChild(toast);
+
+      setTimeout(function () {
+        toast.remove();
+
+        if (region.children.length === 0) {
+          region.remove();
         }
-        .hero-art { justify-content: center; order: -1; }
-        .hero-art img { width: min(320px, 80vw); }
-        .content-grid { grid-template-columns: 1fr; }
-        .stack-sidebar { position: static; }
-        .footer-main { grid-template-columns: 1fr 1fr; }
-        .footer-brand { grid-column: 1 / -1; }
-        .footer-bottom-inner { flex-direction: column; align-items: flex-start; }
+      }, 2600);
+    }
+
+    function addToStack(id) {
+      const tech = technologies.find(item => item.id === id);
+
+      if (!tech) return;
+
+      if (state.stack.some(item => item.id === id)) {
+        showToast(tech.name + " is already in your stack.", "warning");
+        return;
       }
-      @media (max-width: 520px) {
-        .technology-grid { grid-template-columns: 1fr; }
-        .footer-main { grid-template-columns: 1fr; }
-        .footer-brand { grid-column: auto; }
-        .hero h1 { font-size: 40px; }
+
+      state.stack.push(tech);
+
+      render();
+      showToast(tech.name + " added to your stack.", "success");
+    }
+
+    function removeFromStack(id) {
+      const removed = state.stack.find(item => item.id === id);
+
+      state.stack = state.stack.filter(item => item.id !== id);
+
+      render();
+
+      if (removed) {
+        showToast(removed.name + " removed from your stack.", "info");
       }
-    </style>
-  </head>
+    }
 
-  <body>
-    <div id="root"></div>
-    <div id="standalone-root" hidden></div>
+    function removeAll() {
+      if (state.stack.length === 0) return;
 
-    <script>
-      (() => {
-        const isDirectBrowser = window.location.protocol === 'file:';
+      state.stack = [];
 
-        if (!isDirectBrowser) {
-          const moduleScript = document.createElement('script');
-          moduleScript.type = 'module';
-          moduleScript.src = '/src/main.jsx';
-          document.body.appendChild(moduleScript);
-          return;
-        }
+      render();
+      showToast("Your stack has been cleared.", "info");
+    }
 
-        /*
-         * Standalone browser preview.
-         * This intentionally uses plain JavaScript instead of CDN dependencies so
-         * double-clicking index.html works even when npm/Vite is not running.
-         */
-        const root = document.getElementById('standalone-root');
-        const technologies = JSON.parse(
-          document.getElementById('standalone-technology-data').textContent
-        );
+    function renderNavbar() {
+      const links = ["Home", "Technologies", "Projects", "About", "Contact"];
 
-        const state = {
-          stack: [],
-          menuOpen: false,
-        };
+      return `
+        <header class="site-header">
+          <div class="section-shell nav-inner">
 
-        const escapeHtml = (value) =>
-          String(value)
-            .replaceAll('&', '&amp;')
-            .replaceAll('<', '&lt;')
-            .replaceAll('>', '&gt;')
-            .replaceAll('"', '&quot;')
-            .replaceAll("'", '&#039;');
+            <button
+              class="menu-button"
+              type="button"
+              data-action="toggle-menu"
+              aria-label="Toggle navigation menu"
+              aria-expanded="${state.menuOpen}"
+            >
+              <span class="menu-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
 
-        const showToast = (message, type = 'info') => {
-          let region = document.querySelector('.toast-region');
-          if (!region) {
-            region = document.createElement('div');
-            region.className = 'toast-region';
-            document.body.appendChild(region);
-          }
+            <a class="brand" href="#home" data-action="close-menu">
+              <span class="brand-mark gradient-bg">DS</span>
+              <span>Dev <span class="gradient-text">Stack</span></span>
+            </a>
 
-          const toast = document.createElement('div');
-          toast.className = `toast ${type}`;
+            <nav class="desktop-nav" aria-label="Primary navigation">
+              ${links.map((link, index) => `
+                <a
+                  class="${index === 0 ? "active" : ""}"
+                  href="#${link.toLowerCase()}"
+                >
+                  ${link}
+                </a>
+              `).join("")}
+            </nav>
 
-          const icon = document.createElement('span');
-          icon.className = `toast-status-icon ${type}`;
-          icon.textContent = type === 'success' ? '✓' : type === 'warning' ? '!' : 'i';
-
-          const text = document.createElement('span');
-          text.textContent = message;
-
-          const close = document.createElement('button');
-          close.type = 'button';
-          close.className = 'toast-close';
-          close.setAttribute('aria-label', 'Close notification');
-          close.textContent = '×';
-          close.addEventListener('click', () => toast.remove());
-
-          const progress = document.createElement('span');
-          progress.className = 'toast-progress';
-          progress.setAttribute('aria-hidden', 'true');
-
-          toast.append(icon, text, close, progress);
-          region.appendChild(toast);
-
-          window.setTimeout(() => {
-            toast.remove();
-            if (!region.children.length) region.remove();
-          }, 2600);
-        };
-
-        const addToStack = (id) => {
-          const tech = technologies.find((item) => item.id === id);
-          if (!tech) return;
-
-          if (state.stack.some((item) => item.id === id)) {
-            showToast(`${tech.name} is already in your stack.`, 'warning');
-            return;
-          }
-
-          state.stack = [...state.stack, tech];
-          render();
-          showToast(`${tech.name} added to your stack.`, 'success');
-        };
-
-        const removeFromStack = (id) => {
-          const removed = state.stack.find((item) => item.id === id);
-          state.stack = state.stack.filter((item) => item.id !== id);
-          render();
-
-          if (removed) showToast(`${removed.name} removed from your stack.`, 'info');
-        };
-
-        const removeAll = () => {
-          if (!state.stack.length) return;
-          state.stack = [];
-          render();
-          showToast('Your stack has been cleared.', 'info');
-        };
-
-        const navigationLinks = ['Home', 'Technologies', 'Projects', 'About', 'Contact'];
-
-        const renderNavbar = () => `
-          <header class="site-header">
-            <div class="section-shell nav-inner">
-              <button class="menu-button" type="button" data-action="toggle-menu"
-                aria-label="Toggle navigation menu" aria-expanded="${state.menuOpen}">
-                <span class="menu-lines"><span></span><span></span><span></span></span>
+            <div class="auth-actions">
+              <button class="auth-signin" type="button">
+                Sign In
               </button>
 
-              <a class="brand" href="#home" data-action="close-menu">
+              <button class="signup gradient-bg" type="button">
+                Sign Up
+              </button>
+            </div>
+
+            <nav
+              class="mobile-menu ${state.menuOpen ? "open" : ""}"
+              aria-label="Mobile navigation"
+            >
+              ${links.map(link => `
+                <a
+                  href="#${link.toLowerCase()}"
+                  data-action="close-menu"
+                >
+                  ${link}
+                </a>
+              `).join("")}
+            </nav>
+
+          </div>
+        </header>
+      `;
+    }
+
+    function renderHero() {
+      return `
+        <section id="home" class="section-shell hero">
+
+          <div>
+            <h1>
+              Build Your Ideal
+              <span class="gradient-text">Development Stack</span>
+            </h1>
+
+            <p>
+              Explore frontend, backend, database, and tooling options,
+              compare them side by side, and put together the stack that
+              fits your next project.
+            </p>
+
+            <div class="hero-actions">
+              <a
+                class="button button-primary gradient-bg"
+                href="#technologies"
+              >
+                Explore Technologies
+              </a>
+
+              <a
+                class="button button-secondary"
+                href="#about"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-art">
+            <div style="
+              width:min(390px,100%);
+              height:260px;
+              display:grid;
+              place-items:center;
+              border-radius:24px;
+              background:linear-gradient(135deg,#fff7ed,#fdf2f8,#eef2ff);
+              box-shadow:0 20px 50px rgba(116,71,232,.08);
+            ">
+              <div style="
+                width:180px;
+                height:180px;
+                border-radius:50%;
+                display:grid;
+                place-items:center;
+                font-size:58px;
+                font-weight:900;
+                color:white;
+                background:var(--brand-gradient);
+                box-shadow:0 18px 40px rgba(116,71,232,.2);
+              ">
+                &lt;/&gt;
+              </div>
+            </div>
+          </div>
+
+        </section>
+      `;
+    }
+
+    function renderCard(tech) {
+      const added = state.stack.some(item => item.id === tech.id);
+
+      return `
+        <article class="tech-card">
+
+          <div class="card-top">
+            <div class="icon-wrap">
+              <img
+                class="tech-icon"
+                src="${escapeHtml(tech.icon)}"
+                alt="${escapeHtml(tech.name)} icon"
+                loading="lazy"
+              >
+            </div>
+
+            <span class="badge">
+              ${escapeHtml(tech.badge)}
+            </span>
+          </div>
+
+          <h3>${escapeHtml(tech.name)}</h3>
+
+          <p>${escapeHtml(tech.description)}</p>
+
+          <div class="card-footer">
+            <div class="meta">
+              <span class="category">
+                ${escapeHtml(tech.category)}
+              </span>
+
+              <span>
+                ${escapeHtml(tech.difficulty)}
+              </span>
+
+              <span class="rating">
+                <strong>★</strong> ${escapeHtml(tech.rating)}
+              </span>
+            </div>
+
+            <button
+              class="add-button"
+              type="button"
+              data-action="add"
+              data-id="${escapeHtml(tech.id)}"
+              ${added ? "disabled" : ""}
+            >
+              ${added ? "✓ Added to Stack" : "Add to Stack"}
+            </button>
+          </div>
+
+        </article>
+      `;
+    }
+
+    function renderStack() {
+      if (state.stack.length === 0) {
+        return `
+          <div class="empty-stack">
+            Your stack is empty.
+          </div>
+        `;
+      }
+
+      return `
+        <div class="stack-list">
+          ${state.stack.map(item => `
+            <div class="stack-item">
+
+              <img
+                src="${escapeHtml(item.icon)}"
+                alt="${escapeHtml(item.name)}"
+              >
+
+              <div class="stack-item-info">
+                <p class="stack-item-name">
+                  ${escapeHtml(item.name)}
+                </p>
+
+                <p class="stack-item-category">
+                  ${escapeHtml(item.category)}
+                </p>
+              </div>
+
+              <button
+                class="remove-button"
+                type="button"
+                data-action="remove"
+                data-id="${escapeHtml(item.id)}"
+                aria-label="Remove ${escapeHtml(item.name)}"
+              >
+                ×
+              </button>
+
+            </div>
+          `).join("")}
+        </div>
+
+        <button
+          class="remove-all"
+          type="button"
+          data-action="remove-all"
+        >
+          Remove All
+        </button>
+      `;
+    }
+
+    function renderTechnologies() {
+      return `
+        <section id="technologies" class="section-shell technology-section">
+
+          <div class="section-heading">
+            <h2>
+              Explore the
+              <span class="gradient-text">Technologies</span>
+            </h2>
+
+            <p>
+              Pick one technology per category to build your ideal stack.
+            </p>
+          </div>
+
+          <div class="content-grid">
+
+            <div class="technology-grid">
+              ${technologies.map(renderCard).join("")}
+            </div>
+
+            <aside class="stack-sidebar">
+              <h2>Your Stack</h2>
+
+              <p class="stack-count">
+                ${state.stack.length}
+                Technology${state.stack.length === 1 ? "" : "ies"}
+                Selected
+              </p>
+
+              ${renderStack()}
+            </aside>
+
+          </div>
+
+        </section>
+      `;
+    }
+
+    function renderFooter() {
+      return `
+        <footer class="site-footer" id="contact">
+
+          <div class="section-shell footer-main">
+
+            <div class="footer-brand">
+              <a class="brand" href="#home">
                 <span class="brand-mark gradient-bg">DS</span>
                 <span>Dev <span class="gradient-text">Stack</span></span>
               </a>
 
-              <nav class="desktop-nav" aria-label="Primary navigation">
-                ${navigationLinks.map((link, index) => `
-                  <a class="${index === 0 ? 'active' : ''}" href="#${link.toLowerCase()}">
-                    ${link}
-                  </a>
-                `).join('')}
-              </nav>
-
-              <div class="auth-actions">
-                <button class="auth-signin" type="button">Sign In</button>
-                <button class="signup gradient-bg" type="button">Sign Up</button>
-              </div>
-
-              <nav class="mobile-menu ${state.menuOpen ? 'open' : ''}" aria-label="Mobile navigation">
-                ${navigationLinks.map((link) => `
-                  <a href="#${link.toLowerCase()}" data-action="close-menu">${link}</a>
-                `).join('')}
-              </nav>
-            </div>
-          </header>
-        `;
-
-        const renderHero = () => `
-          <section id="home" class="section-shell hero">
-            <div>
-              <h1>Build Your Ideal <span class="gradient-text">Development Stack</span></h1>
-              <p>
-                Explore frontend, backend, database, and tooling options, compare
-                them side by side, and put together the stack that fits your next project.
+              <p class="footer-description">
+                Curated tools, technologies, and resources for developers
+                building modern software.
               </p>
-              <div class="hero-actions">
-                <a class="button button-primary gradient-bg" href="#technologies">Explore Technologies</a>
-                <a class="button button-secondary" href="#about">Learn More</a>
-              </div>
-            </div>
-            <div className="hero-art">
-              <img src="assets/hero-illustration.svg" alt="Hero Illustration">
-            </div>
-          </section>
-        `;
 
-        const renderCard = (tech) => {
-          const added = state.stack.some((item) => item.id === tech.id);
-
-          return `
-            <article class="tech-card">
-              <div class="card-top">
-                <div class="icon-wrap">
-                  <img class="tech-icon" src="${escapeHtml(tech.icon)}" alt="${escapeHtml(tech.name)} icon" loading="lazy">
-                </div>
-                <span class="badge">${escapeHtml(tech.badge)}</span>
-              </div>
-
-              <h3>${escapeHtml(tech.name)}</h3>
-              <p>${escapeHtml(tech.description)}</p>
-
-              <div class="card-footer">
-                <div class="meta">
-                  <span class="category">${escapeHtml(tech.category)}</span>
-                  <span>${escapeHtml(tech.difficulty)}</span>
-                  <span class="rating"><strong>★</strong> ${escapeHtml(tech.rating)}</span>
-                </div>
-                <button class="add-button" type="button"
-                  data-action="add" data-id="${escapeHtml(tech.id)}" ${added ? 'disabled' : ''}>
-                  ${added ? '✓ Added to Stack' : 'Add to Stack'}
-                </button>
-              </div>
-            </article>
-          `;
-        };
-
-        const renderStack = () => {
-          if (!state.stack.length) {
-            return '<div class="empty-stack">Your stack is empty.</div>';
-          }
-
-          return `
-            <div class="stack-list">
-              ${state.stack.map((item) => `
-                <div class="stack-item">
-                  <img src="${escapeHtml(item.icon)}" alt="">
-                  <div class="stack-item-info">
-                    <p class="stack-item-name">${escapeHtml(item.name)}</p>
-                    <p class="stack-item-category">${escapeHtml(item.category)}</p>
-                  </div>
-                  <button class="remove-button" type="button"
-                    data-action="remove" data-id="${escapeHtml(item.id)}"
-                    aria-label="Remove ${escapeHtml(item.name)}">×</button>
-                </div>
-              `).join('')}
-            </div>
-            <button class="remove-all" type="button" data-action="remove-all">Remove All</button>
-          `;
-        };
-
-        const renderTechnologies = () => `
-          <section id="technologies" class="section-shell technology-section">
-            <div class="section-heading">
-              <h2>Explore the <span class="gradient-text">Technologies</span></h2>
-              <p>Pick one technology per category to build your ideal stack.</p>
-            </div>
-
-            <div class="content-grid">
-              <div class="technology-grid">
-                ${technologies.map(renderCard).join('')}
-              </div>
-
-              <aside class="stack-sidebar">
-                <h2>Your Stack</h2>
-                <p class="stack-count">
-                  ${state.stack.length} Technology${state.stack.length === 1 ? '' : 'ies'} Selected
-                </p>
-                ${renderStack()}
-              </aside>
-            </div>
-          </section>
-        `;
-
-        const renderFooter = () => `
-          <footer class="site-footer" id="contact">
-            <div class="section-shell footer-main">
-              <div class="footer-brand">
-                <a class="brand" href="#home">
-                  <span class="brand-mark gradient-bg">DS</span>
-                  <span>Dev <span class="gradient-text">Stack</span></span>
+              <div class="footer-socials">
+                <a href="https://github.com" target="_blank" rel="noreferrer">
+                  GitHub
                 </a>
-                <p class="footer-description">
-                  Curated tools, technologies, and resources for developers building modern software.
-                </p>
-                <div class="footer-socials">
-                  <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
-                  <a href="https://twitter.com" target="_blank" rel="noreferrer">Twitter</a>
-                  <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-                </div>
-              </div>
 
-              <div class="footer-group">
-                <h3>Product</h3>
-                <div class="footer-links">
-                  <a href="#home">Home</a>
-                  <a href="#technologies">Technologies</a>
-                  <a href="#projects">Projects</a>
-                </div>
-              </div>
+                <a href="https://twitter.com" target="_blank" rel="noreferrer">
+                  Twitter
+                </a>
 
-              <div class="footer-group">
-                <h3>Company</h3>
-                <div class="footer-links">
-                  <a href="#about">About</a>
-                  <a href="#contact">Contact</a>
-                  <a href="#careers">Careers</a>
-                </div>
-              </div>
-
-              <div class="footer-group">
-                <h3>Legal</h3>
-                <div class="footer-links">
-                  <a href="#privacy">Privacy Policy</a>
-                  <a href="#terms">Terms of Service</a>
-                </div>
+                <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+                  LinkedIn
+                </a>
               </div>
             </div>
 
-            <div class="footer-bottom">
-              <div class="section-shell footer-bottom-inner">
-                <span>© 2026 Dev Stack. All rights reserved.</span>
-                <div class="footer-bottom-links">
-                  <a href="#privacy">Privacy</a>
-                  <a href="#terms">Terms</a>
-                </div>
+            <div class="footer-group">
+              <h3>Product</h3>
+
+              <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#technologies">Technologies</a>
+                <a href="#projects">Projects</a>
               </div>
             </div>
-          </footer>
-        `;
 
-        const render = () => {
-          root.hidden = false;
-          root.innerHTML = `
-            ${renderNavbar()}
-            <main>
-              ${renderHero()}
-              ${renderTechnologies()}
-              <section id="projects"></section>
-              <section id="about"></section>
-              <section id="careers"></section>
-              <section id="privacy"></section>
-              <section id="terms"></section>
-            </main>
-            ${renderFooter()}
-          `;
-        };
+            <div class="footer-group">
+              <h3>Company</h3>
 
-        root.addEventListener('click', (event) => {
-          const actionElement = event.target.closest('[data-action]');
-          if (!actionElement) return;
+              <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#careers">Careers</a>
+              </div>
+            </div>
 
-          const { action, id } = actionElement.dataset;
+            <div class="footer-group">
+              <h3>Legal</h3>
 
-          if (action === 'toggle-menu') {
-            state.menuOpen = !state.menuOpen;
-            render();
-            return;
-          }
+              <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+              </div>
+            </div>
 
-          if (action === 'close-menu') {
-            state.menuOpen = false;
-            render();
-            return;
-          }
+          </div>
 
-          if (action === 'add') {
-            addToStack(id);
-            return;
-          }
+          <div class="footer-bottom">
+            <div class="section-shell footer-bottom-inner">
+              <span>© 2026 Dev Stack. All rights reserved.</span>
 
-          if (action === 'remove') {
-            removeFromStack(id);
-            return;
-          }
+              <div class="footer-bottom-links">
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+              </div>
+            </div>
+          </div>
 
-          if (action === 'remove-all') {
-            removeAll();
-          }
-        });
+        </footer>
+      `;
+    }
 
+    function render() {
+      app.innerHTML = `
+        ${renderNavbar()}
+
+        <main>
+          ${renderHero()}
+          ${renderTechnologies()}
+
+          <section id="projects"></section>
+          <section id="about"></section>
+          <section id="careers"></section>
+          <section id="privacy"></section>
+          <section id="terms"></section>
+        </main>
+
+        ${renderFooter()}
+      `;
+    }
+
+    app.addEventListener("click", function(event) {
+      const actionElement = event.target.closest("[data-action]");
+
+      if (!actionElement) return;
+
+      const action = actionElement.dataset.action;
+      const id = actionElement.dataset.id;
+
+      if (action === "toggle-menu") {
+        state.menuOpen = !state.menuOpen;
         render();
-      })();
-    </script>
-  </body>
+        return;
+      }
+
+      if (action === "close-menu") {
+        state.menuOpen = false;
+        render();
+        return;
+      }
+
+      if (action === "add") {
+        addToStack(id);
+        return;
+      }
+
+      if (action === "remove") {
+        removeFromStack(id);
+        return;
+      }
+
+      if (action === "remove-all") {
+        removeAll();
+      }
+    });
+
+    render();
+  </script>
+
+</body>
 </html>
