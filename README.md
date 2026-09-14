@@ -109,7 +109,7 @@ The orange → pink → violet gradient is defined once as `--brand-gradient` in
   
 ## 🌐 Live Demo
 
-https://mdnayeemislam6466.github.io/Dev-Stack/
+https://mdnayeemislam6466.github.io/Dev-Stack-Assignment-5/
 
 ## 👨‍💻 Author
 <img src="https://github.com/mdnayeemislam6466.png" alt="Md Nayeem" width="80" height="80" align="left">
